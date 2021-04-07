@@ -1,4 +1,4 @@
-package com.search.tests;
+package com.tests;
 
 import com.flights.pages.FlightsSite;
 import com.search.pages.SearchSite;
@@ -12,15 +12,14 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected SearchSite searchSite;
-    protected String keyword;
+    protected FlightsSite flightSite;
 
 
     @BeforeTest
-    @Parameters({"keyword"})
-    public void setupDriver(String keyword)  {
-        this.keyword = keyword;
+    public void setupDriver()  {
         driver = new ChromeDriver();
         searchSite = new SearchSite(driver);
+        flightSite = new FlightsSite(driver);
     }
 
     @AfterTest

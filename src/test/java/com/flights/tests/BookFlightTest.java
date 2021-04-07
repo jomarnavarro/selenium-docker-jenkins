@@ -1,13 +1,15 @@
 package com.flights.tests;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class BookFlightTest extends BaseTest {
+public class BookFlightTest extends com.tests.BaseTest {
 
     @Test
-    public void endToEnd() {
+    @Parameters({"noOfPassengers", "expectedPrice"})
+    public void endToEnd(String noOfPassengers, String expectedPrice) {
         flightSite.registrationPage().goTo();
         flightSite.registrationPage().enterUserDetails("selenium", "docker");
         flightSite.registrationPage().enterUserCredentials("selenium", "docker");
